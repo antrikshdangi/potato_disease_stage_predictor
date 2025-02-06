@@ -3,7 +3,7 @@ import tensorflow as tf
 import numpy as np
 
 def model_prediction(test_image):
-    model = tf.keras.models.load_model('/Users/arun/Documents/AICTEproject/potato_disease_stage_predictor/trained_plant_disease_model.keras')
+    model = tf.keras.models.load_model('trained_plant_disease_model.keras')
     image = tf.keras.preprocessing.image.load_img(test_image,target_size=(128,128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])
@@ -14,7 +14,7 @@ st.sidebar.title("Plant Disease System for Sustainable Agriculture")
 app_mode = st.sidebar.selectbox('select page',['Home','Disease Recognition'])
 
 from PIL import Image
-img = Image.open('/Users/arun/Documents/AICTEproject/potato_disease_stage_predictor/Disease.jpeg')
+img = Image.open('Disease.jpeg')
 st.image(img)
 
 if(app_mode == 'Home'):
